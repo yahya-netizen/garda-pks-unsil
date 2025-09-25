@@ -1,0 +1,317 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Users, 
+  Calendar,
+  ExternalLink,
+  Shield,
+  MessageCircle,
+  Globe,
+  Download,
+  Award
+} from "lucide-react";
+
+const InformasiModule = () => {
+  const hotlineInfo = [
+    {
+      type: "Hotline Darurat",
+      number: "0265-123456",
+      availability: "24/7",
+      description: "Untuk laporan kasus darurat dan konsultasi mendesak"
+    },
+    {
+      type: "Whatsapp Konseling",
+      number: "0812-3456-7890", 
+      availability: "Senin-Jumat 08:00-20:00",
+      description: "Konseling psikologis dan dukungan emosional"
+    },
+    {
+      type: "Email Resmi",
+      contact: "satgasppks@unsil.ac.id",
+      availability: "Direspon dalam 24 jam",
+      description: "Untuk pertanyaan resmi dan konsultasi tertulis"
+    }
+  ];
+
+  const jalurPengaduan = [
+    {
+      channel: "Portal Online",
+      description: "Laporan melalui website resmi dengan sistem enkripsi",
+      features: ["Anonim", "Secure", "24/7"],
+      icon: Globe
+    },
+    {
+      channel: "Hotline Telepon", 
+      description: "Laporan langsung melalui telepon dengan konselor terlatih",
+      features: ["Real-time", "Confidential", "Emergency"],
+      icon: Phone
+    },
+    {
+      channel: "Email Terenkripsi",
+      description: "Laporan tertulis dengan keamanan tingkat tinggi", 
+      features: ["Documentation", "Secure", "Follow-up"],
+      icon: Mail
+    },
+    {
+      channel: "Tatap Muka",
+      description: "Konsultasi langsung di kantor Satgas PPKS",
+      features: ["Personal", "Counseling", "Support"],
+      icon: MapPin
+    }
+  ];
+
+  const satgasMembers = [
+    {
+      name: "Prof. Dr. Siti Aminah, M.Pd",
+      position: "Ketua Satgas PPKS",
+      department: "Fakultas Keguruan dan Ilmu Pendidikan",
+      expertise: "Psikologi Pendidikan, Konseling"
+    },
+    {
+      name: "Dr. Ahmad Rahman, S.H., M.H", 
+      position: "Wakil Ketua Bidang Hukum",
+      department: "Fakultas Hukum",
+      expertise: "Hukum Pidana, Perlindungan Korban"
+    },
+    {
+      name: "Dr. Maya Sari, M.Psi., Psikolog",
+      position: "Koordinator Konseling",
+      department: "Pusat Konseling Mahasiswa",
+      expertise: "Psikologi Klinis, Trauma Healing"
+    },
+    {
+      name: "Drs. Budi Santoso, M.M",
+      position: "Sekretaris Satgas",
+      department: "Biro Administrasi Akademik",
+      expertise: "Administrasi, Manajemen Krisis"
+    },
+    {
+      name: "Dr. Rina Wijayanti, S.Sos., M.Si",
+      position: "Koordinator Komunikasi",
+      department: "Fakultas Ilmu Sosial dan Politik", 
+      expertise: "Komunikasi, Public Relations"
+    },
+    {
+      name: "Dra. Lilis Suryani, M.Pd",
+      position: "Koordinator Pencegahan",
+      department: "Lembaga Pengabdian Masyarakat",
+      expertise: "Pendidikan Masyarakat, Sosialisasi"
+    }
+  ];
+
+  const recentActivities = [
+    {
+      date: "20 Sept 2024",
+      title: "Workshop 'Mencegah Kekerasan di Lingkungan Kampus'",
+      participants: "120 mahasiswa dan staff",
+      status: "Selesai"
+    },
+    {
+      date: "15 Sept 2024", 
+      title: "Sosialisasi PPKS untuk Mahasiswa Baru",
+      participants: "800+ mahasiswa baru",
+      status: "Selesai"
+    },
+    {
+      date: "10 Sept 2024",
+      title: "Pelatihan Peer Counselor",
+      participants: "25 mahasiswa volunteer",
+      status: "Selesai"
+    },
+    {
+      date: "25 Okt 2024",
+      title: "Seminar Nasional: Kampus Aman dan Inklusif",
+      participants: "Target 300 peserta",
+      status: "Akan Datang"
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="text-gradient">Informasi</span> Satgas PPKS
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Informasi lengkap mengenai kontak, layanan, struktur organisasi, dan kegiatan 
+            Satuan Tugas Pencegahan dan Penanganan Kekerasan Seksual Universitas Siliwangi.
+          </p>
+        </div>
+
+        <div className="space-y-12">
+          {/* Hotline & Contact Information */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Phone className="w-6 h-6 text-primary" />
+              Kontak Hotline & Pengaduan
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {hotlineInfo.map((info, index) => (
+                <Card key={index} className="shadow-card hover:shadow-elevated transition-smooth">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{info.type}</CardTitle>
+                    <CardDescription>{info.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="text-xl font-bold">{info.number || info.contact}</div>
+                      <Badge variant="secondary" className="flex items-center gap-1 w-fit">
+                        <Clock className="w-3 h-3" />
+                        {info.availability}
+                      </Badge>
+                      <Button size="sm" className="w-full">
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Hubungi Sekarang
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Reporting Channels */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Shield className="w-6 h-6 text-primary" />
+              Jalur Pengaduan & Pelaporan
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {jalurPengaduan.map((jalur, index) => {
+                const Icon = jalur.icon;
+                return (
+                  <Card key={index} className="shadow-card hover:shadow-elevated transition-smooth text-center">
+                    <CardHeader>
+                      <div className="flex justify-center mb-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                      </div>
+                      <CardTitle className="text-lg">{jalur.channel}</CardTitle>
+                      <CardDescription className="text-sm">{jalur.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2">
+                        {jalur.features.map((feature, fIndex) => (
+                          <Badge key={fIndex} variant="outline" className="text-xs mx-1">
+                            {feature}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Team Structure */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Users className="w-6 h-6 text-primary" />
+              Susunan Anggota Satgas PPKS
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {satgasMembers.map((member, index) => (
+                <Card key={index} className="shadow-card hover:shadow-elevated transition-smooth">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <CardTitle className="text-base leading-tight">{member.name}</CardTitle>
+                        <Badge variant="default" className="mt-1 text-xs">
+                          {member.position}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <p className="text-sm text-muted-foreground">{member.department}</p>
+                    <p className="text-sm font-medium">Keahlian: {member.expertise}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Recent Activities */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Calendar className="w-6 h-6 text-primary" />
+              Kegiatan & Program Satgas
+            </h3>
+            <Card className="shadow-card">
+              <CardHeader>
+                <CardTitle>Aktivitas Terbaru & Agenda Mendatang</CardTitle>
+                <CardDescription>
+                  Program edukasi, sosialisasi, dan kegiatan pencegahan kekerasan
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {recentActivities.map((activity, index) => (
+                    <div 
+                      key={index} 
+                      className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-smooth"
+                    >
+                      <div className="flex-1">
+                        <h4 className="font-medium mb-1">{activity.title}</h4>
+                        <p className="text-sm text-muted-foreground mb-2">{activity.participants}</p>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-muted-foreground" />
+                          <span className="text-sm">{activity.date}</span>
+                        </div>
+                      </div>
+                      <Badge 
+                        variant={activity.status === "Selesai" ? "secondary" : "default"}
+                        className="self-start sm:self-center mt-2 sm:mt-0"
+                      >
+                        {activity.status}
+                      </Badge>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Resources */}
+          <div className="bg-primary/5 rounded-xl p-8 border border-primary/20">
+            <div className="text-center">
+              <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-4">Sumber Daya Tambahan</h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Download panduan, materi edukasi, dan dokumen penting lainnya 
+                untuk mendukung program pencegahan kekerasan di kampus.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="default" className="transition-smooth">
+                  <Download className="w-4 h-4 mr-2" />
+                  Panduan PPKS
+                </Button>
+                <Button variant="outline" className="transition-smooth">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Regulasi & Kebijakan
+                </Button>
+                <Button variant="secondary" className="transition-smooth">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Jadwal Kegiatan
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InformasiModule;
