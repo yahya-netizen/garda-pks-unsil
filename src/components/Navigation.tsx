@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Shield, BookOpen, Users, Info, ArrowRight } from "lucide-react";
+import { Menu, X, Building2, BookOpen, Users, Info, ArrowRight } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
@@ -24,7 +24,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-              <Shield className="w-6 h-6 text-primary-foreground" />
+              <Building2 className="w-6 h-6 text-primary-foreground" />
             </div>
             <div className="hidden lg:block">
               <h1 className="text-lg font-bold text-primary">
