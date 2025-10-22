@@ -33,7 +33,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               <p className="text-sm text-muted-foreground">Universitas Siliwangi</p>
             </div>
             <div className="lg:hidden">
-              <h1 className="text-base font-bold text-primary">Satgas PPKS</h1>
+              <h1 className="text-base font-bold text-primary">Satgas PPKPT</h1>
             </div>
           </div>
 
