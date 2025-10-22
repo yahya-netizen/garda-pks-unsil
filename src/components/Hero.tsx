@@ -19,7 +19,7 @@ const Hero = ({ setActiveSection }: HeroProps) => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-gradient">Satuan Tugas Pencegahan</span>
             <br />
-            <span className="text-primary">& Penanganan Kekerasan</span>
+            <span className="text-primary">& Penanganan Kekerasan Perguruan Tinggi</span>
             <br />
             <span className="text-foreground">Universitas Siliwangi</span>
           </h1>
