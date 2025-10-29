@@ -24,7 +24,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-              <img src={"satgas.png"} alt="" />
+              <img src={"satgas.ico"} alt="" />
             </div>
             <div className="hidden lg:block">
               <h1 className="text-lg font-bold text-primary">
