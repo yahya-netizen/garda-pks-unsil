@@ -12,8 +12,8 @@ const EdukasiModule = () => {
   const educationLevels = [
     {
       level: 1,
-      title: "Pengenalan Dasar PPKS",
-      description: "Memahami konsep dasar pencegahan dan penanganan kekerasan seksual",
+      title: "Pengenalan Dasar PPKPT",
+      description: "Memahami konsep dasar pencegahan dan penanganan kekerasan",
       duration: "15 menit",
       questions: 5,
       unlocked: true,
@@ -61,7 +61,7 @@ const EdukasiModule = () => {
     {
       level: 7,
       title: "Hukum dan Regulasi",
-      description: "Landasan hukum dan peraturan terkait PPKS di lingkungan perguruan tinggi",
+      description: "Landasan hukum dan peraturan terkait PPKPT di lingkungan perguruan tinggi",
       duration: "28 menit",
       questions: 12,
       unlocked: completedLevels.includes(6),
@@ -106,7 +106,7 @@ const EdukasiModule = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient">Modul Edukasi</span> PPKS
+            <span className="text-gradient">Modul Edukasi</span> PPKPT
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
             Pelajari 10 tingkatan pemahaman tentang pencegahan dan penanganan kekerasan 

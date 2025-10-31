@@ -36,8 +36,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
             setActiveSection("")
           }}>
             <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-              <Building2 className="w-6 h-6 text-primary-foreground" />
-            </div>  
+              <img src={"satgas.ico"} alt="" />
+            </div>
             <div className="hidden lg:block">
               <h1 className="text-lg font-bold text-primary">
                 Satgas Pencegahan & Penanganan Kekerasan
@@ -45,7 +45,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               <p className="text-sm text-muted-foreground">Universitas Siliwangi</p>
             </div>
             <div className="lg:hidden">
-              <h1 className="text-base font-bold text-primary">Satgas PPKS</h1>
+              <h1 className="text-base font-bold text-primary">Satgas PPKPT</h1>
             </div>
           </div>
 

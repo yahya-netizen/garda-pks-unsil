@@ -22,10 +22,10 @@ const AlurModule = () => {
       description: "Korban atau saksi melaporkan kejadian melalui berbagai saluran yang tersedia",
       icon: AlertTriangle,
       details: [
-        "Hotline 24/7: 0265-123456",
-        "Email: satgasppks@unsil.ac.id", 
+        "Hotline 24/7: 0823-1020-2930",
+        "Email: satgasppkpt@unsil.ac.id", 
         "Website: Portal pelaporan online",
-        "Langsung ke kantor Satgas PPKS"
+        "Langsung ke kantor Satgas PPKPT"
       ],
       timeframe: "0-24 jam",
       color: "bg-red-50 border-red-200 text-red-700"
@@ -103,9 +103,9 @@ const AlurModule = () => {
   ];
 
   const emergencyContacts = [
-    { label: "Hotline Satgas PPKS", number: "0265-123456", available: "24/7" },
-    { label: "Whatsapp Konseling", number: "0812-3456-7890", available: "08:00-20:00" },
-    { label: "Email Pengaduan", contact: "satgasppks@unsil.ac.id", available: "24/7" }
+    { label: "Hotline Satgas PPKPT", number: "0823-1020-2930", available: "24/7" },
+    { label: "Whatsapp Konseling", number: "0823-1020-2930", available: "08:00-20:00" },
+    { label: "Email Pengaduan", contact: "satgasppkpt@unsil.ac.id", available: "24/7" }
   ];
 
   return (
@@ -202,7 +202,7 @@ const AlurModule = () => {
           <div className="bg-gradient-primary p-8 rounded-xl text-primary-foreground shadow-elevated max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Butuh Bantuan Segera?</h3>
             <p className="mb-6 opacity-90">
-              Jangan ragu untuk menghubungi kami. Tim Satgas PPKS siap membantu Anda 24/7 
+              Jangan ragu untuk menghubungi kami. Tim Satgas PPKPT siap membantu Anda  
               dengan profesionalisme dan kerahasiaan terjamin.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -20,20 +20,20 @@ const InformasiModule = () => {
   const hotlineInfo = [
     {
       type: "Hotline Darurat",
-      number: "0265-123456",
+      number: "0823-1020-2930",
       availability: "24/7",
       description: "Untuk laporan kasus darurat dan konsultasi mendesak"
     },
     {
       type: "Whatsapp Konseling",
-      number: "0812-3456-7890", 
+      number: "0823-1020-2930", 
       availability: "Senin-Jumat 08:00-20:00",
       description: "Konseling psikologis dan dukungan emosional",
       href: "https://wa.me//+6282310202930"
     },
     {
       type: "Email Resmi",
-      contact: "satgasppks@unsil.ac.id",
+      contact: "satgasppkpt@unsil.ac.id",
       availability: "Direspon dalam 24 jam",
       description: "Untuk pertanyaan resmi dan konsultasi tertulis",
       href: "mailto:satgasppkpt@unsil.ac.id"
@@ -61,7 +61,7 @@ const InformasiModule = () => {
     },
     {
       channel: "Tatap Muka",
-      description: "Konsultasi langsung di kantor Satgas PPKS",
+      description: "Konsultasi langsung di kantor Satgas PPKPT",
       features: ["Personal", "Counseling", "Support"],
       icon: MapPin
     }
@@ -69,9 +69,9 @@ const InformasiModule = () => {
 
   const satgasMembers = [
     {
-      name: "Prof. Dr. Siti Aminah, M.Pd",
-      position: "Ketua Satgas PPKS",
-      department: "Fakultas Keguruan dan Ilmu Pendidikan",
+      name: "Irani Hoeronis, S.Si., M.T., CRP., CIISA",
+      position: "Ketua Satgas PPKPT",
+      department: "Fakultas Teknik",
       expertise: "Psikologi Pendidikan, Konseling"
     },
     {
@@ -115,7 +115,7 @@ const InformasiModule = () => {
     },
     {
       date: "15 Sept 2024", 
-      title: "Sosialisasi PPKS untuk Mahasiswa Baru",
+      title: "Sosialisasi PPKPT untuk Mahasiswa Baru",
       participants: "800+ mahasiswa baru",
       status: "Selesai"
     },
@@ -303,7 +303,7 @@ const InformasiModule = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="default" className="transition-smooth">
                   <Download className="w-4 h-4 mr-2" />
-                  Panduan PPKS
+                  Panduan PPKPT
                 </Button>
                 <Button variant="outline" className="transition-smooth">
                   <ExternalLink className="w-4 h-4 mr-2" />
