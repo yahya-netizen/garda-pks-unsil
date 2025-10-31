@@ -28,13 +28,15 @@ const InformasiModule = () => {
       type: "Whatsapp Konseling",
       number: "0812-3456-7890", 
       availability: "Senin-Jumat 08:00-20:00",
-      description: "Konseling psikologis dan dukungan emosional"
+      description: "Konseling psikologis dan dukungan emosional",
+      href: "https://wa.me//+6282310202930"
     },
     {
       type: "Email Resmi",
       contact: "satgasppks@unsil.ac.id",
       availability: "Direspon dalam 24 jam",
-      description: "Untuk pertanyaan resmi dan konsultasi tertulis"
+      description: "Untuk pertanyaan resmi dan konsultasi tertulis",
+      href: "mailto:satgasppkpt@unsil.ac.id"
     }
   ];
 
@@ -131,6 +133,12 @@ const InformasiModule = () => {
     }
   ];
 
+  const continueConsult = (href: string) => {
+    if(confirm("Apakah anda ingin melanjutkan konsultasi  ?")){
+      window.location.href = href;
+    }
+  }
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -165,7 +173,7 @@ const InformasiModule = () => {
                         <Clock className="w-3 h-3" />
                         {info.availability}
                       </Badge>
-                      <Button size="sm" className="w-full">
+                      <Button size="sm" className="w-full" onClick={() => continueConsult(info.href)}>
                         <MessageCircle className="w-4 h-4 mr-2" />
                         Hubungi Sekarang
                       </Button>
