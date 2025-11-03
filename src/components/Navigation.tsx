@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Building2, BookOpen, Users, Info, ArrowRight, UserIcon } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 
 interface NavigationProps {
   activeSection?: string;
