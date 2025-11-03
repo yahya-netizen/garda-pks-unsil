@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight, Phone, MessageCircle } from "lucide-react";
 
 interface HeroProps {
-  setActiveSection: (section: string) => void;
+  setActiveSection?: (section: string) => void;
 }
 
 const Hero = ({ setActiveSection }: HeroProps) => {
