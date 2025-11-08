@@ -6,7 +6,7 @@ import { services } from '@/lib/services';
 import { AxiosError } from 'axios';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router';
-
+import { useEffect } from 'react';
 interface RegisterFormData {
   npm: string;
   nama_lengkap: string;
@@ -18,34 +18,77 @@ interface RegisterFormData {
   confirmPassword: string;
 }
 
-export default function RegisterModule() {
+export default function ProfileModule() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<RegisterFormData>();
+  const [user, setUser] = useState(null);
+  const { register, handleSubmit, watch, formState: { errors }, reset} = useForm<RegisterFormData>();
   const navigate = useNavigate();
 
   const password = watch('password');
+
+  const getUserProfile = async() => {
+    const {url, method} = services.user.profile();
+    setIsLoading(true);
+    await API({
+        url,
+        method
+    }).then((res) => {
+        const {data: data} = res.data;
+        setUser(data);
+        reset({
+          email: data.email,
+          npm: data.npm,
+          nama_lengkap: data.nama_lengkap,
+          jurusan: data.jurusan,
+          fakultas: data.fakultas,
+          jenis_kelamin: data.jenis_kelamin
+        });
+    }).catch((err) => {
+        console.log(err);
+        if(err instanceof AxiosError){
+          toast.error(err.response.data.message);
+        }
+        if(err.response.status === 401){
+          navigate('/login');
+        }
+    }).finally(() => {
+       setIsLoading(false);
+    })
+  }
+
+  useEffect(() => {
+    getUserProfile();
+  },[]) //eslint-disable-line
+
+
 
   const onSubmit = async (data: RegisterFormData) => {
     setIsLoading(true);
     // Remove confirmPassword before sending to API
     const { confirmPassword, ...registerData } = data;
-    const {url, method} = services.auth.register();
+    const {url, method} = services.user.update();
 
     await API({
       url,
       method,
-      data: registerData
+      data: {...registerData, ...user}
     }).then((res) => {
       toast.success(res.data.message);
-      navigate('/login');
+      navigate('/');
       reset();
       setShowPassword(false);
       setShowConfirmPassword(false);
     }).catch((err) => {
+      console.log(err);
       if(err instanceof AxiosError){
-        toast.error(err.response.data.errors)
+        const {data: errors} = err.response;
+        if(typeof errors !== "string"){
+          toast.error(errors.message)
+        } else {
+          toast.error(errors)
+        }
       }
     }).finally(() => {
       setIsLoading(false);
@@ -74,9 +117,7 @@ export default function RegisterModule() {
             <div className="mx-auto h-16 w-16 bg-red-500 rounded-full flex items-center justify-center mb-4 shadow-lg">
               <img src="/satgas.ico" alt="Satgas Logo" className="h-8 w-8" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Daftar Akun</h2>
-            <p className="text-gray-600">Satgas Pencegahan & Penanganan Kekerasan</p>
-            <p className="text-sm text-gray-500">Universitas Siliwangi</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Profil Akun Anda</h2>
           </div>
 
           {/* Form */}
@@ -90,6 +131,7 @@ export default function RegisterModule() {
                 {...register('npm', {
                   required: 'NPM wajib diisi setidaknya 8 karakter',
                   minLength: 8,
+                  disabled: true
                 })}
                 type="text"
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 ${
@@ -110,9 +152,10 @@ export default function RegisterModule() {
               <input
                 {...register('nama_lengkap', {
                   required: 'Nama lengkap wajib diisi',
+                  disabled: true,
                   minLength: {
                     value: 2,
-                    message: 'Nama lengkap minimal 2 karakter'
+                    message: 'Nama lengkap minimal 2 karakter',
                   }
                 })}
                 type="text"
@@ -135,6 +178,7 @@ export default function RegisterModule() {
                 </label>
                 <select
                   {...register('jenis_kelamin', {
+                    disabled: true,
                     required: 'Jenis kelamin wajib dipilih'
                   })}
                   className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 ${
@@ -157,6 +201,7 @@ export default function RegisterModule() {
                 </label>
                 <select
                   {...register('fakultas', {
+                    disabled: true,
                     required: 'Fakultas wajib dipilih'
                   })}
                   className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 ${
@@ -181,6 +226,7 @@ export default function RegisterModule() {
               </label>
               <input
                 {...register('jurusan', {
+                  disabled: true,
                   required: 'Jurusan wajib diisi'
                 })}
                 type="text"
@@ -303,27 +349,6 @@ export default function RegisterModule() {
               </div>
             </div>
 
-            {/* Terms and Conditions */}
-            <div className="flex items-start">
-              <input
-                id="terms"
-                name="terms"
-                type="checkbox"
-                required
-                className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded mt-1"
-              />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                Saya menyetujui{' '}
-                <a href="#" className="text-red-600 hover:text-red-500 transition-colors">
-                  syarat dan ketentuan
-                </a>{' '}
-                serta{' '}
-                <a href="#" className="text-red-600 hover:text-red-500 transition-colors">
-                  kebijakan privasi
-                </a>
-              </label>
-            </div>
-
             {/* Submit Button */}
             <button
               type="submit"
@@ -338,23 +363,14 @@ export default function RegisterModule() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Mendaftar...
+                  Loading...
                 </div>
               ) : (
-                'Daftar Sekarang'
+                'Perbarui Data'
               )}
             </button>
           </form>
 
-          {/* Footer */}
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Sudah punya akun? {' '}
-              <NavLink to="/login" className="text-red-600 hover:text-red-500 font-medium transition-colors">
-                Login Sekarang
-              </NavLink>
-            </p>
-          </div>
         </div>
       </div>
     </div>

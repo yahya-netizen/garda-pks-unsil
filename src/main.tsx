@@ -3,5 +3,13 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter, Routes } from "react-router";
 import Navigation from "./components/Navigation.tsx";
+import { AuthProvider } from "./context/AuthContext.tsx";
 
-createRoot(document.getElementById("root")!).render(<BrowserRouter><Navigation/><App /></BrowserRouter>);
+createRoot(document.getElementById("root")!).render(
+  <AuthProvider>
+    <BrowserRouter>
+      <Navigation />
+      <App />
+    </BrowserRouter>
+  </AuthProvider>
+);

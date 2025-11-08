@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Building2, BookOpen, Users, Info, ArrowRight, UserIcon } from "lucide-react";
 import { NavLink } from "react-router";
+import { useAuth } from "@/context/AuthContext";
 
 interface NavigationProps {
   activeSection?: string;
@@ -18,10 +19,11 @@ interface NavMenuProps {
 const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const { user, token } = useAuth();
 
 
   const menuItems: NavMenuProps[] = [
-    { id: "edukasi", label: "Edukasi", href:"/edukasi", icon: BookOpen },
+    { id: "berita", label: "Berita", href:"/berita", icon: BookOpen },
     { id: "alur", label: "Alur Penanganan", href: "/alur", icon: ArrowRight },
     { id: "komunitas", label: "Komunitas", href:"/komunitas", icon: Users },
     { id: "informasi", label: "Informasi", href: "/informasi", icon: Info },
@@ -32,6 +34,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Title */}
+          <NavLink to={'/'}>
           <div className="flex items-center space-x-3" onClick={() => {
             setActiveSection("")
           }}>
@@ -48,6 +51,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               <h1 className="text-base font-bold text-primary">Satgas PPKPT</h1>
             </div>
           </div>
+          </NavLink>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
@@ -68,16 +72,34 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                 </NavLink>
               );
             })}
-              <NavLink to={"/login"} className={({ isActive }) => isActive ? "text-primary font-medium" : "text-muted-foreground font-normal"}>
-                <Button
-                  variant={"default"}
-                  size="sm"
-                  className="transition-smooth"
-                >
-                  <UserIcon className="w-4 h-4 mr-2" />
-                  Login
-                </Button>
+            {
+              user ? (
+                <NavLink to={`/profile`} className={({ isActive }) => isActive ? "text-primary font-medium" : "text-muted-foreground font-normal"}>
+                  <Button
+                    variant={"default"}
+                    size="sm"
+                    className="transition-smooth"
+                  >
+                    <UserIcon className="w-4 h-4 mr-2" />
+                      {user?.nama_lengkap}
+                  </Button>
                 </NavLink>
+            ) : (
+            <>
+             <NavLink to={`/login`} className={({ isActive }) => isActive ? "text-primary font-medium" : "text-muted-foreground font-normal"}>
+                  <Button
+                    variant={"default"}
+                    size="sm"
+                    className="transition-smooth"
+                  >
+                    <UserIcon className="w-4 h-4 mr-2" />
+                   Login
+                  </Button>
+                </NavLink>
+            </>
+          )
+            }
+    
           </div>
 
           {/* Mobile Menu Button */}
