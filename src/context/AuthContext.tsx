@@ -34,11 +34,22 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState(null);
   
 
-  const getUserSession = () => {
+  const getUserSession = async () => {
+
     const session = localStorage.getItem("auth_token");
     const userData = localStorage.getItem("user_data");
     setToken(session);
     setUser(JSON.parse(userData));
+
+    const {url, method} = services.user.profile();
+    await API({
+      url, 
+      method
+    }).then(() => {
+    }).catch(() => {
+      logout();
+    });
+
   };
 
   useEffect(() => {
@@ -53,7 +64,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(user);
   };
 
-  const logout = () => setUser(null);
+  const logout = () => {
+    localStorage.removeItem("auth_token");
+    localStorage.removeItem("user_data");
+    setToken(null);
+    setUser(null);
+  }
   return (
     <AuthContext.Provider value={{ user, login, logout, token }}>
       {children}

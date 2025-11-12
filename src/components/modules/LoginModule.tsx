@@ -22,12 +22,7 @@ export default function LoginModule() {
 
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
-    // Simulate API call
-    // await new Promise(resolve => setTimeout(resolve, 1500));
-    // console.log('Login data:', data);
-    // setIsLoading(false);
     const {url, method} = services.auth.login();
-    console.log(data);
 
     await API({
       url,
