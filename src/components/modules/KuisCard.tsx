@@ -14,25 +14,33 @@ import {
   Lock,
   Play,
 } from "lucide-react";
-import { KuisModuleProps } from "@/lib/types/KuisModule";
+import { KuisModule } from "@/lib/types/KuisModule";
 import { useNavigate } from "react-router";
+import { Progress } from "@/lib/types/Progress";
 
+interface IProps {
+  module: KuisModule
+  progressPrevMod: Progress
+  isInitModule?: boolean;
+}
 
-export default function KuisCard({module, progress, isInitModule}: {module: KuisModuleProps["modul_kuis"], progress: KuisModuleProps["progress"], isInitModule?: boolean}) {
+export default function KuisCard({module, isInitModule, progressPrevMod}: IProps) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    if (progress?.isCompleted || isInitModule) {
-      navigate(`/edukasi/kuis/${module?.id}`);
+    if (module?.progress[0]?.isCompleted) {
+      navigate(`/edukasi/kuis-result/${module?.id}`)
+    } else {
+      navigate(`/edukasi/kuis/${module?.id}`)
     }
   }
 
   return (
     <Card
       className={`transition-smooth hover:shadow-elevated ${
-        !progress?.isCompleted && !isInitModule ? "opacity-60" : "cursor-pointer"
+        !module?.progress[0]?.isCompleted && !isInitModule ? "opacity-60" : "cursor-pointer"
       } ${
-        progress?.isCompleted && !isInitModule ? "ring-2 ring-primary/30" : ""
+        module?.progress[0]?.isCompleted && !isInitModule ? "ring-2 ring-primary/30" : ""
       }`}
     >
       <CardHeader className="relative">
@@ -40,16 +48,16 @@ export default function KuisCard({module, progress, isInitModule}: {module: Kuis
           <div className="flex items-center gap-3">
             <div
               className={`flex items-center justify-center w-10 h-10 rounded-lg ${
-                progress?.isCompleted && !isInitModule
+                module?.progress[0]?.isCompleted && !isInitModule
                   ? "bg-primary text-primary-foreground"
-                  : progress?.isCompleted && !isInitModule
+                  : module?.progress[0]?.isCompleted && !isInitModule
                   ? "bg-primary/10 text-primary"
                   : "bg-muted text-muted-foreground"
               }`}
             >
-              {progress?.isCompleted && !isInitModule ? (
+              {module?.progress[0]?.isCompleted && !isInitModule ? (
                 <CheckCircle className="w-5 h-5" />
-              ) : progress?.isCompleted && !isInitModule || isInitModule ? (
+              ) : module?.progress[0]?.isCompleted && !isInitModule || isInitModule ? (
                 <BookOpen className="w-5 h-5" />
               ) : (
                 <Lock className="w-5 h-5" />
@@ -57,11 +65,11 @@ export default function KuisCard({module, progress, isInitModule}: {module: Kuis
             </div>
             <div>
               <Badge variant="outline" className="mb-2">
-                Level {module?.id}
+                Level {module?.id} 
               </Badge>
-              {progress?.isCompleted && !isInitModule && (
+              {module?.progress[0]?.isCompleted ? (
                 <Trophy className="w-4 h-4 text-primary absolute top-4 right-4" />
-              )}
+              ) : (null)}
             </div>
           </div>
         </div>
@@ -79,24 +87,23 @@ export default function KuisCard({module, progress, isInitModule}: {module: Kuis
             <span>❓ {module?.kuis?.length} soal</span>
           </div>
 
-          
           <Button
             variant={
-              progress?.isCompleted || isInitModule
+              (module?.progress[0]?.isCompleted) || isInitModule || progressPrevMod?.isCompleted
                 ? "default"
                 : "secondary"
             }
             size="sm"
             className="w-full transition-smooth"
-            disabled={!progress?.isCompleted && !isInitModule}
+            disabled={!module?.progress[0]?.isCompleted && !progressPrevMod?.isCompleted && !isInitModule}
             onClick={handleCardClick}
           >
-            {progress?.isCompleted ? (
+            {module?.progress[0]?.isCompleted ? (
               <>
                 <CheckCircle className="w-4 h-4 mr-2" />
                 Selesai
               </>
-            ) : progress?.isCompleted || isInitModule ? (
+            ) : progressPrevMod?.isCompleted || isInitModule ? (
               <>
                 <Play className="w-4 h-4 mr-2" />
                 Mulai Level
@@ -108,6 +115,14 @@ export default function KuisCard({module, progress, isInitModule}: {module: Kuis
               </>
             )}
           </Button>
+
+          {
+            module?.progress[0]?.isCompleted && (
+              <Button variant="outline" className="w-full" onClick={() => { navigate(`/edukasi/kuis-result/${module?.id}`);}}>
+                Lihat Riwayat
+              </Button>
+            )
+          }
         </div>
       </CardContent>
     </Card>

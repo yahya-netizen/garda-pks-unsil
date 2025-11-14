@@ -7,16 +7,16 @@ import { API } from "@/lib/api";
 import { services } from "@/lib/services";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import { KuisModuleProps, KuisArrProps } from "@/lib/types/KuisModule";
+import { KuisModule } from "@/lib/types/KuisModule";
 import KuisCard from "./KuisCard";
 
 const EdukasiModule = () => {
   const [completedLevels, setCompletedLevels] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [modules, setModules] = useState<KuisArrProps>();
-  const [initModules, setInitModules] = useState<KuisModuleProps>();
+  const [modules, setModules] = useState<KuisModule[]>([]);
+  const [initModules, setInitModules] = useState<KuisModule>();
 
-  const progress = (completedLevels.length / modules?.modul_kuis?.length) * 100;
+  const progress = (completedLevels.length / modules?.length) * 100;
 
   const fetchModules = async () => {
     setIsLoading(true);
@@ -27,15 +27,8 @@ const EdukasiModule = () => {
     })
       .then((res) => {
         const { data } = res.data;
-        setInitModules({
-          modul_kuis: data.modul_kuis[0],
-          progress: data.progress[0],
-        });
-        data.modul_kuis.shift();
-        setModules({
-          modul_kuis: data.modul_kuis,
-          progress: data.progress,
-        });
+        // setInitModules(data[0]);
+        setModules(data);
       })
       .catch((err) => {
         if (err instanceof AxiosError) {
@@ -84,12 +77,12 @@ const EdukasiModule = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-5">
                 
-                <KuisCard module={initModules?.modul_kuis} progress={initModules?.progress} isInitModule={true} />
+                {/* <KuisCard module={initModules} isInitModule={true} progress={initModules?.progress} /> */}
 
-                {modules?.modul_kuis.length > 0 &&
-                  modules?.modul_kuis?.map((level, index) => (
+                {modules?.length > 0 &&
+                  modules?.map((level, index) => (
                     <div key={index}>
-                      <KuisCard module={level} progress={modules.progress[index]} />
+                      <KuisCard module={level} progressPrevMod={modules[index - 1]?.progress[0]}/>
                     </div>
                   ))}
               </div>

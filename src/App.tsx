@@ -17,6 +17,7 @@ import { Protected } from "./Protected";
 import DetailBeritaModule from "./components/modules/DetailBeritaModule";
 import ProfileModule from "./components/modules/ProfileModule";
 import SoalKuis from "./components/modules/SoalKuis";
+import ResultKuisModule from "./components/modules/ResultKuisModule";
 
 const App = () => (
     <TooltipProvider>
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/live-chat" element={<Protected><LivechatModule /></Protected>} />
           <Route path="/profile" element={<Protected><ProfileModule /></Protected>} />
           <Route path="/edukasi/kuis/:kuisId" element={<Protected><SoalKuis /></Protected>} />
+          <Route path="/edukasi/kuis-result/:kuisId" element={<Protected><ResultKuisModule /></Protected>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -5,12 +5,14 @@ import { services } from "@/lib/services";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
-import { JawabanKuis } from "@/lib/types/Kuis";
+import { JawabanKuis } from "@/lib/types/JawabanKuis";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 export default function SoalKuis(){
     const params = useParams();
     const kuisId = params.kuisId;
+    const navigate = useNavigate();
 
     const [kuis, setKuis] = useState(null);
     const [currentQuiz, setCurrentQuiz] = useState(0);
@@ -18,6 +20,7 @@ export default function SoalKuis(){
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
     const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
     const [totalQuiz, setTotalQuiz] = useState(0);
+    
 
     const selectQuizAnswer = (questionIndex: number, answerId: string) => {
         setSelectedAnswer(answerId);
@@ -36,8 +39,8 @@ export default function SoalKuis(){
         }).then((res) => {
             const { data, total_soal } = res.data;
             setTotalQuiz(total_soal);
-            setKuis(data); 
-            setSelectedAnswer(null); // Reset selection when fetching new question
+            setKuis(data[0]); 
+            setSelectedAnswer(null);
         }).catch((err) => {
             if(err instanceof AxiosError){
                 toast.error(err.response?.data.message || "Gagal memuat soal kuis.");
@@ -50,7 +53,7 @@ export default function SoalKuis(){
 
     useEffect(() => {
         fetchKuis();
-    },[currentQuiz]);
+    },[currentQuiz]); //eslint-disable-line
 
     const handlePrev = () => {
         // Handle submit logic here
@@ -58,12 +61,32 @@ export default function SoalKuis(){
         setCurrentQuiz(prev => prev - 1);
     };
 
+    const submitKuis = async () => {
+        setIsLoading(true);
+        const { url, method } = services.kuis.submitAnswers(kuisId!);
+        API({
+            url,
+            method,
+            data: { answers: JSON.stringify(userAnswers) }
+        }).then(() => {
+            toast.success("Berhasil mengirim jawaban kuis.");
+            navigate(`/edukasi/kuis-result/${kuisId}`);
+        }).catch((err) => {
+            console.log(err);
+            if(err instanceof AxiosError){
+                toast.error(err.response?.data.message || "Gagal mengirim jawaban kuis.");
+            }
+        }).finally(() => {
+            setIsLoading(false);
+        });
+    }
+
     const handleNext = () => {
-        if(totalQuiz == currentQuiz + 1) return;
+        if(totalQuiz == currentQuiz + 1) return submitKuis();
         setCurrentQuiz(prev => prev + 1);
     }
 
-    const isAnswered = userAnswers[kuis?.[currentQuiz]?.nomor_kuis];
+    const isAnswered = userAnswers[kuis?.nomor_kuis];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 py-8 px-4">
@@ -80,15 +103,15 @@ export default function SoalKuis(){
                         {/* Quiz Title */}
                         <div className="mb-8 break-all gap-y-3 flex flex-col">
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                                {kuis?.[currentQuiz]?.kuis_title || "Reprehenderit In Voluptate Velit Esse Cillum Dolore"}
+                                {kuis?.kuis_title}
                             </h2>
-                            <p className="text-lg">{kuis?.[currentQuiz]?.kuis_content}</p>
+                            <p className="text-lg">{kuis?.[0]?.kuis_content}</p>
                         </div>
                         
                         {/* Answer Options */}
                         <div className="space-y-3 mb-8">
-                            {kuis?.[currentQuiz]?.jawaban_kuis?.map((jawaban: JawabanKuis, index: number) => {
-                                const isSelected = userAnswers[kuis?.[currentQuiz]?.nomor_kuis] === String(jawaban.id);
+                            {kuis?.jawaban_kuis?.map((jawaban: JawabanKuis, index: number) => {
+                                const isSelected = userAnswers[kuis?.nomor_kuis] === String(jawaban.id);
                                 return (
                                     <label 
                                         key={index}
@@ -119,7 +142,7 @@ export default function SoalKuis(){
                                             name="jawaban"
                                             value={jawaban.id}
                                             checked={isSelected}
-                                            onChange={(e) => selectQuizAnswer(kuis?.[currentQuiz]?.nomor_kuis, e.target.value)}
+                                            onChange={(e) => selectQuizAnswer(kuis?.nomor_kuis, e.target.value)}
                                             className="sr-only"
                                             
                                         />
@@ -142,16 +165,16 @@ export default function SoalKuis(){
 
                         <Button
                             onClick={handleNext}
-                            disabled={!isAnswered || totalQuiz == currentQuiz + 1}
+                            disabled={!isAnswered}
                             className={`
                                 w-xl py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200
-                                ${isAnswered && totalQuiz != currentQuiz + 1
+                                ${isAnswered
                                     ? 'bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5' 
                                     : 'bg-gray-300 cursor-not-allowed'
                                 }
                             `}
                         >
-                            Selanjutnya
+                            {currentQuiz + 1 == totalQuiz ? 'Submit Jawaban' : 'Selanjutnya'}
                         </Button>
                         </div>
 
