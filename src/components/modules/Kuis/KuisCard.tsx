@@ -38,9 +38,9 @@ export default function KuisCard({module, isInitModule, progressPrevMod}: IProps
   return (
     <Card
       className={`transition-smooth hover:shadow-elevated ${
-        !module?.progress[0]?.isCompleted && !isInitModule ? "opacity-60" : "cursor-pointer"
+        !module?.progress[0]?.isCompleted ? "opacity-60" : "cursor-pointer"
       } ${
-        module?.progress[0]?.isCompleted && !isInitModule ? "ring-2 ring-primary/30" : ""
+        module?.progress[0]?.isCompleted ? "ring-2 ring-primary/30" : ""
       }`}
     >
       <CardHeader className="relative">
@@ -48,16 +48,16 @@ export default function KuisCard({module, isInitModule, progressPrevMod}: IProps
           <div className="flex items-center gap-3">
             <div
               className={`flex items-center justify-center w-10 h-10 rounded-lg ${
-                module?.progress[0]?.isCompleted && !isInitModule
+                module?.progress[0]?.isCompleted
                   ? "bg-primary text-primary-foreground"
-                  : module?.progress[0]?.isCompleted && !isInitModule
+                  : module?.progress[0]?.isCompleted
                   ? "bg-primary/10 text-primary"
                   : "bg-muted text-muted-foreground"
               }`}
             >
-              {module?.progress[0]?.isCompleted && !isInitModule ? (
+              {module?.progress[0]?.isCompleted ? (
                 <CheckCircle className="w-5 h-5" />
-              ) : module?.progress[0]?.isCompleted && !isInitModule || isInitModule ? (
+              ) : module?.progress[0]?.isCompleted && isInitModule ? (
                 <BookOpen className="w-5 h-5" />
               ) : (
                 <Lock className="w-5 h-5" />

@@ -16,7 +16,9 @@ const EdukasiModule = () => {
   const [modules, setModules] = useState<KuisModule[]>([]);
   const [initModules, setInitModules] = useState<KuisModule>();
 
-  const progress = (completedLevels.length / modules?.length) * 100;
+  // const 
+  const completedModules = modules?.filter((mod) => mod?.progress[0]?.isCompleted);
+  const progress = (completedModules.length / modules?.length) * 100;
 
   const fetchModules = async () => {
     setIsLoading(true);
@@ -52,7 +54,7 @@ const EdukasiModule = () => {
             <span className="text-gradient">Modul Edukasi</span> PPKPT
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Pelajari 10 tingkatan pemahaman tentang pencegahan dan penanganan
+            Pelajari {modules?.length} tingkatan pemahaman tentang pencegahan dan penanganan
             kekerasan melalui materi interaktif dan ujian yang komprehensif.
           </p>
 
@@ -67,7 +69,7 @@ const EdukasiModule = () => {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-medium">Progress Anda</span>
                   <Badge variant="secondary">
-                    {completedLevels.length}/10 Level
+                    {completedModules.length}/{modules?.length} Level
                   </Badge>
                 </div>
                 <Progress value={progress} className="mb-2" />
@@ -82,7 +84,7 @@ const EdukasiModule = () => {
                 {modules?.length > 0 &&
                   modules?.map((level, index) => (
                     <div key={index}>
-                      <KuisCard module={level} progressPrevMod={modules[index - 1]?.progress[0]}/>
+                      <KuisCard module={level} progressPrevMod={modules[index - 1]?.progress[0]} isInitModule={index < 1}/>
                     </div>
                   ))}
               </div>

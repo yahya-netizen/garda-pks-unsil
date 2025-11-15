@@ -4,20 +4,20 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router";
 import Hero from "@/components/Hero";
-import EdukasiModule from "@/components/modules/EdukasiModule";
-import AlurModule from "@/components/modules/AlurModule";
-import KomunitasModule from "@/components/modules/KomunitasModule";
-import InformasiModule from "@/components/modules/InformasiModule";
+import EdukasiModule from "@/components/modules/Kuis/EdukasiModule";
+import AlurModule from "@/components/modules/Alur/AlurModule";
+import KomunitasModule from "@/components/modules/Komunitas/KomunitasModule";
+import InformasiModule from "@/components/modules/Informasi/InformasiModule";
 import NotFound from "./pages/NotFound";
-import LivechatModule from "./components/modules/LivechatModule";
-import RegisterModule from "./components/modules/RegisterModule";
-import LoginModule from "./components/modules/LoginModule";
-import BeritaModule from "./components/modules/BeritaModule";
+import LivechatModule from "./components/modules/Komunitas/LivechatModule";
+import RegisterModule from "./components/modules/Auth/RegisterModule";
+import LoginModule from "./components/modules/Auth/LoginModule";
+import BeritaModule from "./components/modules/Berita/BeritaModule";
 import { Protected } from "./Protected";
-import DetailBeritaModule from "./components/modules/DetailBeritaModule";
-import ProfileModule from "./components/modules/ProfileModule";
-import SoalKuis from "./components/modules/SoalKuis";
-import ResultKuisModule from "./components/modules/ResultKuisModule";
+import DetailBeritaModule from "./components/modules/Berita/DetailBeritaModule";
+import ProfileModule from "./components/modules/Auth/ProfileModule";
+import SoalKuis from "./components/modules/Kuis/SoalKuis";
+import ResultKuisModule from "./components/modules/Kuis/ResultKuisModule";
 
 const App = () => (
     <TooltipProvider>
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/informasi" element={<InformasiModule />} />
           <Route path="/berita" element={<BeritaModule />} />
           <Route path="/berita/:slug" element={<DetailBeritaModule />} />
-          <Route path="/komunitas" element={<Protected><KomunitasModule /></Protected>} />
+          <Route path="/komunitas" element={<KomunitasModule />} />
           <Route path="/edukasi" element={<Protected><EdukasiModule /></Protected>} />
           <Route path="/live-chat" element={<Protected><LivechatModule /></Protected>} />
           <Route path="/profile" element={<Protected><ProfileModule /></Protected>} />

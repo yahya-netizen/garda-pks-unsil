@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Calendar, User, Eye, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import { useEffect } from "react";
-import { API } from "../../lib/api";
+import { API } from "../../../lib/api";
 import { services } from "@/lib/services";
 import { AxiosError } from "axios";
 import { toast } from "sonner"
