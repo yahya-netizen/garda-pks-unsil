@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { NavLink } from "react-router";
 
 interface HeroProps {
   setActiveSection?: (section: string) => void;
@@ -19,51 +20,64 @@ const Hero = ({ setActiveSection }: HeroProps) => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-gradient">Satuan Tugas Pencegahan</span>
             <br />
-            <span className="text-primary">& Penanganan Kekerasan Perguruan Tinggi</span>
+            <span className="text-primary">
+              & Penanganan Kekerasan Perguruan Tinggi
+            </span>
             <br />
             <span className="text-foreground">Universitas Siliwangi</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Bersama menciptakan lingkungan kampus yang aman, nyaman, dan bebas dari segala bentuk kekerasan 
-            untuk seluruh civitas akademika Universitas Siliwangi.
+            Bersama menciptakan lingkungan kampus yang aman, nyaman, dan bebas
+            dari segala bentuk kekerasan untuk seluruh civitas akademika
+            Universitas Siliwangi.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              onClick={() => setActiveSection("edukasi")}
-              className="transition-smooth shadow-card hover:shadow-elevated"
-            >
-              <ArrowRight className="w-5 h-5 mr-2" />
-              Mulai Edukasi
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => setActiveSection("informasi")}
-              className="transition-smooth"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Hotline Pengaduan
-            </Button>
+            <NavLink to={"/edukasi"}>
+              <Button
+                size="lg"
+                onClick={() => setActiveSection("edukasi")}
+                className="transition-smooth shadow-card hover:shadow-elevated"
+              >
+                <ArrowRight className="w-5 h-5 mr-2" />
+                Mulai Edukasi
+              </Button>
+            </NavLink>
+            <NavLink to={"/informasi"}>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setActiveSection("informasi")}
+                className="transition-smooth"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Hotline Pengaduan
+              </Button>
+            </NavLink>
           </div>
 
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <div className="bg-card p-6 rounded-xl shadow-card transition-smooth hover:shadow-elevated">
               <div className="text-2xl font-bold text-primary mb-2">10</div>
-              <div className="text-sm text-muted-foreground">Tingkat Edukasi</div>
+              <div className="text-sm text-muted-foreground">
+                Tingkat Edukasi
+              </div>
             </div>
             <div className="bg-card p-6 rounded-xl shadow-card transition-smooth hover:shadow-elevated">
               <div className="text-2xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-sm text-muted-foreground">Layanan Hotline</div>
+              <div className="text-sm text-muted-foreground">
+                Layanan Hotline
+              </div>
             </div>
             <div className="bg-card p-6 rounded-xl shadow-card transition-smooth hover:shadow-elevated">
               <div className="text-2xl font-bold text-primary mb-2">Aman</div>
-              <div className="text-sm text-muted-foreground">Pelaporan Terjamin</div>
+              <div className="text-sm text-muted-foreground">
+                Pelaporan Terjamin
+              </div>
             </div>
           </div>
 
@@ -74,8 +88,8 @@ const Hero = ({ setActiveSection }: HeroProps) => {
                 <MessageCircle className="w-5 h-5" />
                 <span className="font-semibold">Butuh Bantuan Segera?</span>
               </div>
-              <Button 
-                variant="default" 
+              <Button
+                variant="default"
                 size="sm"
                 onClick={() => setActiveSection("informasi")}
               >
