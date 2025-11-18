@@ -19,12 +19,11 @@ const AlurModule = () => {
     {
       step: 1,
       title: "Pelaporan Awal",
-      description: "Korban atau saksi melaporkan kejadian melalui berbagai saluran yang tersedia",
+      description: "Korban atau saksi melaporkan kejadian dengan mengisi formulir dan berkas-berkas melalui berbagai saluran yang tersedia",
       icon: AlertTriangle,
       details: [
         "Hotline 24/7: 0823-1020-2930",
         "Email: satgasppkpt@unsil.ac.id", 
-        "Website: Portal pelaporan online",
         "Langsung ke kantor Satgas PPKPT"
       ],
       timeframe: "0-24 jam",
@@ -37,11 +36,13 @@ const AlurModule = () => {
       icon: FileText,
       details: [
         "Pencatatan data laporan",
-        "Verifikasi identitas pelapor",
+        "Identifikasi korban, saksi, dan terlapor",
         "Dokumentasi kronologi kejadian",
-        "Penentuan tingkat urgensi"
+        "Pemberian informasi kepada terlapor",
+        "Sidang telaah awal",
+        "Penentuan langkah selanjutnya"
       ],
-      timeframe: "1-3 hari kerja",
+      timeframe: "3-7 hari kerja",
       color: "bg-orange-50 border-orange-200 text-orange-700"
     },
     {
