@@ -9,8 +9,9 @@ interface IProps {
 export default function MessageList({ messages, setMessages }: IProps) {
 
 useChannel('ppks-public-chat', (message) => {
-    console.log('Received message:', message);
-    // setMessages((prevMessages) => [...prevMessages, message]);
+    // console.log('Received message:', message);
+    const { data } = message;
+    setMessages((prevMessages) => [...prevMessages, JSON.parse(data)]);
   });
 
   return (

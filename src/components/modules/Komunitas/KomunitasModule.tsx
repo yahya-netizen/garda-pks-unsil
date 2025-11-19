@@ -66,8 +66,7 @@ const KomunitasModule = () => {
         method,
         data: {content: newMessage}
       }).then((res) => {
-        console.log(res.data)
-        const {data: data} = res;
+        const {data: data} = res.data;
         toast.success("Pesan terkirim");
         setMessages([
           ...messages,

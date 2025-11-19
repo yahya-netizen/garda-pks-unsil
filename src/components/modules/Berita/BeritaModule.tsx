@@ -6,27 +6,8 @@ import { API } from "../../../lib/api";
 import { services } from "@/lib/services";
 import { AxiosError } from "axios";
 import { toast } from "sonner"
+import { NewsPageProps } from "@/lib/types/News";
 
-interface NewsItem {
-  id: number;
-  berita_title: string;
-  excerpt: string;
-  content: string;
-  berita_image: string;
-  author: {
-    name: string;
-  };
-  date: string;
-  views: number;
-  category: string;
-  isFeatured?: boolean;
-  created_at: string;
-}
-
-interface NewsPageProps {
-  newsItems: NewsItem[];
-  hasNextPage: boolean;
-}
 
 export default function BeritaModule() {
   const [newsData, setNewsData] = useState<NewsPageProps>({newsItems: [], hasNextPage: false});

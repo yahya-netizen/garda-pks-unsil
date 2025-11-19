@@ -34,7 +34,7 @@ export default function LoginModule() {
         login(data.token, data.user)
         reset();
         toast.success("Login berhasil");
-        navigate('/edukasi');
+        window.location.href = '/edukasi';
     }).catch((err) => {
       console.log(err)
       if(err instanceof AxiosError){

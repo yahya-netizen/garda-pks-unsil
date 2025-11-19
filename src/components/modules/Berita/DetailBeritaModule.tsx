@@ -40,6 +40,7 @@ export default function DetailBeritaModule(){
             url,
             method
         }).then((res) => {
+            console.log(res);
             const {data: data} = res.data;
             setBerita(data);
         }).catch((err: AxiosError) => {
