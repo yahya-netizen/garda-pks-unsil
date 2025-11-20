@@ -54,7 +54,7 @@ const EdukasiModule = () => {
             <span className="text-gradient">Modul Edukasi</span> PPKPT
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Pelajari {modules?.length} tingkatan pemahaman tentang pencegahan dan penanganan
+            Pelajari {modules?.length || 0} tingkatan pemahaman tentang pencegahan dan penanganan
             kekerasan melalui materi interaktif dan ujian yang komprehensif.
           </p>
 
@@ -74,7 +74,7 @@ const EdukasiModule = () => {
                 </div>
                 <Progress value={progress} className="mb-2" />
                 <p className="text-sm text-muted-foreground">
-                  {Math.round(progress)}% Terselesaikan
+                  {Math.round(progress || 0)}% Terselesaikan
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-5">

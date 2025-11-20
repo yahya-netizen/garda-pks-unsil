@@ -1,4 +1,4 @@
-import { useParams } from "react-router"
+import { data, useParams } from "react-router"
 import { useEffect, useState } from "react";
 import { Calendar, User, Eye, ArrowLeft, Share2, Bookmark } from 'lucide-react';
 import { NavLink } from "react-router";
@@ -6,29 +6,17 @@ import { API } from "../../../lib/api";
 import { services } from "@/lib/services";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-
-
-interface NewsDetail {
-   id: number;
-  berita_title: string;
-  excerpt: string;
-  berita_content: string;
-  berita_image: string;
-  author: {
-    name: string;
-  };
-  date: string;
-  views: number;
-  category: string;
-  isFeatured?: boolean;
-  created_at: string;
-}
+import CommentList from "./CommentList";
+import { NewsDetail } from "@/lib/types/News";
+import CommentForm from "./CommentForm";
+import { Comment } from "@/lib/types/Comment";
 
 
 
 export default function DetailBeritaModule(){
     const params = useParams();
     const [berita, setBerita] = useState<NewsDetail>(null);
+    const [comments, setComments] = useState<Comment[]>([]);
     const [isLoading, setLoading] = useState(true);
 
         // Dummy API function
@@ -40,10 +28,12 @@ export default function DetailBeritaModule(){
             url,
             method
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             const {data: data} = res.data;
             setBerita(data);
+            setComments(data.comments || []);
         }).catch((err: AxiosError) => {
+            console.log(err);
             toast.error(err.message)
         }).finally(() => {
             setLoading(false);
@@ -52,7 +42,11 @@ export default function DetailBeritaModule(){
 
     useEffect(() => {
         fetchNewsDetail(params.slug);
-    }, []);
+    }, []); //eslint-disable-line react-hooks/exhaustive-deps
+
+    const onCommentAdded = (newComment: Comment) => {
+        setComments((prevComments) => [...prevComments, newComment]);
+    }
 
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('id-ID', {
@@ -155,6 +149,8 @@ export default function DetailBeritaModule(){
                         />
                     </div>
 
+                    <CommentList comments={comments} />
+
 
                     {/* Tags */}
                     {/* <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -170,6 +166,7 @@ export default function DetailBeritaModule(){
                             ))}
                         </div>
                     </div> */}
+                    <CommentForm slug={params.slug} onCommentAdded={onCommentAdded}/>
                 </article>
             </div>
         </div>

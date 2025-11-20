@@ -26,7 +26,7 @@ export default function ResultKuisModule() {
             method,
         }).then((res) => {
             const { data } = res.data;
-            console.log(data);
+            // console.log(data);
             setResult(data);
             setFilteredResult(data);
         }).catch((err) => {

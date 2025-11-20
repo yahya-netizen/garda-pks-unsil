@@ -21,12 +21,16 @@ export default function BeritaModule() {
       url,
       method
     }).then((res) => {
-      console.log(res)
+      // console.log(res)
       const {data: data} = res;
       setNewsData({...newsData, newsItems: data.data, hasNextPage: data.hasNextPage});
       setSkip(skip + 10);
-    }).catch((err: AxiosError) => {
-      toast.error(err.message)
+    }).catch((err) => {
+      console.log(err);
+      if( err instanceof AxiosError ){
+        toast.error(err.message)
+      }
+      toast.error("Gagal memuat berita");
     }).finally(() => {
       setIsLoading(false);
     });
@@ -88,11 +92,11 @@ export default function BeritaModule() {
                     alt={featuredNews.berita_title}
                     className="w-full h-64 lg:h-full object-cover"
                   />
-                  <div className="absolute top-4 left-4">
+                  {/* <div className="absolute top-4 left-4">
                     <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {featuredNews.category}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <div className="mb-4">
@@ -113,11 +117,11 @@ export default function BeritaModule() {
                         {featuredNews.author.name}
                       </div>
                       <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
+                        <Eye className="h-4 w-4 mr-1" />
                         {featuredNews.views}
                       </div>
                       <div className="flex items-center">
-                        <Eye className="h-4 w-4 mr-1" />
+                        <Calendar className="h-4 w-4 mr-1" />
                         {formatDate(featuredNews.created_at)}
                       </div>
                     </div>
@@ -147,11 +151,11 @@ export default function BeritaModule() {
                   alt={news.berita_title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-3 left-3">
+                {/* <div className="absolute top-3 left-3">
                   <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">
                     {news.category}
                   </span>
-                </div>
+                </div> */}
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-red-600 transition-colors">
@@ -175,10 +179,12 @@ export default function BeritaModule() {
                     <Calendar className="h-3 w-3 mr-1" />
                     {formatDate(news.created_at)}
                   </div>
+                  <NavLink to={`/berita/${news.excerpt}`}>
                   <button className="text-red-500 hover:text-red-600 text-sm font-medium flex items-center group">
                     Baca
                     <ArrowRight className="ml-1 h-3 w-3 transform group-hover:translate-x-1 transition-transform" />
                   </button>
+                  </NavLink>  
                 </div>
               </div>
             </div>

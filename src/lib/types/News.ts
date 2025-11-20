@@ -1,3 +1,4 @@
+import { Admin } from "./Admin";
 import { Comment } from "./Comment";
 
 export interface NewsItem {
@@ -6,10 +7,7 @@ export interface NewsItem {
   excerpt: string;
   content: string;
   berita_image: string;
-  author: {
-    name: string
-  };
-  comments: Comment[]
+  author: Admin;
   date: string;
   views: number;
   category: string;
@@ -20,4 +18,19 @@ export interface NewsItem {
 export interface NewsPageProps {
   newsItems: NewsItem[];
   hasNextPage: boolean;
+}
+
+export interface NewsDetail {
+  id: number;
+  berita_title: string;
+  excerpt: string;
+  berita_content: string;
+  berita_image: string;
+  author: Admin;
+  comments: Comment[];
+  date: string;
+  views: number;
+  category: string;
+  isFeatured?: boolean;
+  created_at: string;
 }
