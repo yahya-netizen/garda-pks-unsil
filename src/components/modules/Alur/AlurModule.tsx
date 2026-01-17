@@ -1,17 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  AlertTriangle, 
-  FileText, 
-  Shield, 
-  Search, 
-  Scale, 
-  HeartHandshake, 
+import {
+  AlertTriangle,
+  FileText,
+  Shield,
+  Search,
+  Scale,
+  HeartHandshake,
   Phone,
   ArrowRight,
   Clock,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
 
 const AlurModule = () => {
@@ -19,20 +25,22 @@ const AlurModule = () => {
     {
       step: 1,
       title: "Pelaporan Awal",
-      description: "Korban atau saksi melaporkan kejadian dengan mengisi formulir dan berkas-berkas melalui berbagai saluran yang tersedia",
+      description:
+        "Korban atau saksi melaporkan kejadian dengan mengisi formulir dan berkas-berkas melalui berbagai saluran yang tersedia",
       icon: AlertTriangle,
       details: [
         "Hotline 24/7: 0823-1020-2930",
-        "Email: satgasppkpt@unsil.ac.id", 
-        "Langsung ke kantor Satgas PPKPT"
+        "Email: satgasppkpt@unsil.ac.id",
+        "Langsung ke kantor Satgas PPKPT",
       ],
       timeframe: "0-24 jam",
-      color: "bg-red-50 border-red-200 text-red-700"
+      color: "bg-red-50 border-red-200 text-red-700",
     },
     {
       step: 2,
       title: "Penerimaan & Dokumentasi",
-      description: "Satgas menerima laporan dan melakukan dokumentasi awal dengan menjaga kerahasiaan",
+      description:
+        "Satgas menerima laporan dan melakukan dokumentasi awal dengan menjaga kerahasiaan",
       icon: FileText,
       details: [
         "Pencatatan data laporan",
@@ -40,10 +48,10 @@ const AlurModule = () => {
         "Dokumentasi kronologi kejadian",
         "Pemberian informasi kepada terlapor",
         "Sidang telaah awal",
-        "Penentuan langkah selanjutnya"
+        "Penentuan langkah selanjutnya",
       ],
       timeframe: "3-7 hari kerja",
-      color: "bg-orange-50 border-orange-200 text-orange-700"
+      color: "bg-orange-50 border-orange-200 text-orange-700",
     },
     {
       step: 3,
@@ -54,38 +62,40 @@ const AlurModule = () => {
         "Konseling psikologis",
         "Bantuan medis jika diperlukan",
         "Perlindungan identitas korban",
-        "Pendampingan hukum"
+        "Pendampingan hukum",
       ],
       timeframe: "Segera setelah laporan",
-      color: "bg-blue-50 border-blue-200 text-blue-700"
+      color: "bg-blue-50 border-blue-200 text-blue-700",
     },
     {
       step: 4,
       title: "Investigasi",
-      description: "Melakukan penyelidikan menyeluruh terhadap kasus yang dilaporkan",
+      description:
+        "Melakukan penyelidikan menyeluruh terhadap kasus yang dilaporkan",
       icon: Search,
       details: [
         "Wawancara dengan korban dan saksi",
         "Pengumpulan bukti-bukti",
         "Klarifikasi dengan pihak terlapor",
-        "Analisis fakta dan temuan"
+        "Analisis fakta dan temuan",
       ],
       timeframe: "7-30 hari kerja",
-      color: "bg-purple-50 border-purple-200 text-purple-700"
+      color: "bg-purple-50 border-purple-200 text-purple-700",
     },
     {
       step: 5,
       title: "Putusan & Sanksi",
-      description: "Pengambilan keputusan berdasarkan hasil investigasi dan pemberian sanksi yang sesuai",
+      description:
+        "Pengambilan keputusan berdasarkan hasil investigasi dan pemberian sanksi yang sesuai",
       icon: Scale,
       details: [
         "Sidang panel ahli",
         "Penilaian tingkat pelanggaran",
         "Penentuan sanksi administratif",
-        "Rujukan ke pihak berwajib jika perlu"
+        "Rujukan ke pihak berwajib jika perlu",
       ],
       timeframe: "3-7 hari kerja setelah investigasi",
-      color: "bg-indigo-50 border-indigo-200 text-indigo-700"
+      color: "bg-indigo-50 border-indigo-200 text-indigo-700",
     },
     {
       step: 6,
@@ -96,17 +106,29 @@ const AlurModule = () => {
         "Program rehabilitasi korban",
         "Monitoring pelaksanaan sanksi",
         "Evaluasi dampak penanganan",
-        "Pencegahan berulangnya kejadian"
+        "Pencegahan berulangnya kejadian",
       ],
       timeframe: "Ongoing (berkelanjutan)",
-      color: "bg-green-50 border-green-200 text-green-700"
-    }
+      color: "bg-green-50 border-green-200 text-green-700",
+    },
   ];
 
   const emergencyContacts = [
-    { label: "Hotline Satgas PPKPT", number: "0823-1020-2930", available: "24/7" },
-    { label: "Whatsapp Konseling", number: "0823-1020-2930", available: "08:00-20:00" },
-    { label: "Email Pengaduan", contact: "satgasppkpt@unsil.ac.id", available: "24/7" }
+    {
+      label: "Hotline Satgas PPKPT",
+      number: "0823-1020-2930",
+      available: "24/7",
+    },
+    {
+      label: "Whatsapp Konseling",
+      number: "0823-1020-2930",
+      available: "08:00-20:00",
+    },
+    {
+      label: "Email Pengaduan",
+      contact: "satgasppkpt@unsil.ac.id",
+      available: "24/7",
+    },
   ];
 
   return (
@@ -117,8 +139,9 @@ const AlurModule = () => {
             <span className="text-gradient">Alur Penanganan</span> Kekerasan
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Proses sistematis dan profesional dalam menangani kasus kekerasan 
-            di lingkungan Universitas Siliwangi dengan menjamin keadilan dan perlindungan korban.
+            Proses sistematis dan profesional dalam menangani kasus kekerasan di
+            lingkungan Universitas Siliwangi dengan menjamin keadilan dan
+            perlindungan korban.
           </p>
 
           {/* Emergency Contacts */}
@@ -129,10 +152,19 @@ const AlurModule = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {emergencyContacts.map((contact, index) => (
-                <div key={index} className="text-center p-4 bg-primary/5 rounded-lg border border-primary/20">
-                  <div className="font-medium text-sm text-primary">{contact.label}</div>
-                  <div className="text-lg font-bold">{contact.number || contact.contact}</div>
-                  <Badge variant="secondary" className="mt-1 text-xs">{contact.available}</Badge>
+                <div
+                  key={index}
+                  className="text-center p-4 bg-primary/5 rounded-lg border border-primary/20"
+                >
+                  <div className="font-medium text-sm text-primary">
+                    {contact.label}
+                  </div>
+                  <div className="text-lg font-bold">
+                    {contact.number || contact.contact}
+                  </div>
+                  <Badge variant="secondary" className="mt-1 text-xs">
+                    {contact.available}
+                  </Badge>
                 </div>
               ))}
             </div>
@@ -144,7 +176,7 @@ const AlurModule = () => {
           {alurSteps.map((step, index) => {
             const Icon = step.icon;
             const isLast = index === alurSteps.length - 1;
-            
+
             return (
               <div key={step.step} className="relative">
                 <div className="flex flex-col lg:flex-row gap-6 items-start">
@@ -163,10 +195,16 @@ const AlurModule = () => {
                     <CardHeader>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div>
-                          <CardTitle className="text-xl mb-2">{step.title}</CardTitle>
-                          <CardDescription className="text-base">{step.description}</CardDescription>
+                          <CardTitle className="text-xl mb-2">
+                            {step.title}
+                          </CardTitle>
+                          <CardDescription className="text-base">
+                            {step.description}
+                          </CardDescription>
                         </div>
-                        <div className={`px-3 py-1 rounded-full text-sm font-medium border ${step.color}`}>
+                        <div
+                          className={`px-3 py-1 rounded-full text-sm font-medium border ${step.color}`}
+                        >
                           <Clock className="w-4 h-4 inline mr-1" />
                           {step.timeframe}
                         </div>
@@ -175,9 +213,14 @@ const AlurModule = () => {
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {step.details.map((detail, detailIndex) => (
-                          <div key={detailIndex} className="flex items-start gap-2">
+                          <div
+                            key={detailIndex}
+                            className="flex items-start gap-2"
+                          >
                             <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-muted-foreground">{detail}</span>
+                            <span className="text-sm text-muted-foreground">
+                              {detail}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -200,18 +243,26 @@ const AlurModule = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-primary p-8 rounded-xl text-primary-foreground shadow-elevated max-w-2xl mx-auto">
+          <div className=" p-8 rounded-xl text-black shadow-elevated max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Butuh Bantuan Segera?</h3>
-            <p className="mb-6 opacity-90">
-              Jangan ragu untuk menghubungi kami. Tim Satgas PPKPT siap membantu Anda  
-              dengan profesionalisme dan kerahasiaan terjamin.
+            <p className="mb-6 opacity-90 text-muted-foreground">
+              Jangan ragu untuk menghubungi kami. Tim Satgas PPKPT siap membantu
+              Anda dengan profesionalisme dan kerahasiaan terjamin.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 border-primary"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Hubungi Hotline
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+              <Button
+                variant="default"
+                size="lg"
+                className="border-white text-white bg-primary"
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Lapor Online
               </Button>

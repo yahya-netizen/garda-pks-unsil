@@ -17,13 +17,7 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -41,7 +35,6 @@ interface NavMenuProps {
 
 const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
   const { user, logout } = useAuth();
 
   const menuItems: NavMenuProps[] = [
@@ -105,27 +98,23 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="default"><UserIcon className="w-4 h-4 mr-2" /> My Profile</Button>
+                  <Button variant="default">
+                    <UserIcon className="w-4 h-4 mr-2" /> My Profile
+                  </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-36" align="start">
                   <DropdownMenuGroup>
                     <NavLink
                       to={`/profile`}
                       className={({ isActive }) =>
-                        isActive
-                          ? "text-primary font-medium"
-                          : " font-normal"
+                        isActive ? "text-primary font-medium" : " font-normal"
                       }
                     >
-                      <DropdownMenuItem>
-                        Profile
-                      </DropdownMenuItem>
+                      <DropdownMenuItem>Profile</DropdownMenuItem>
                     </NavLink>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={logout}>
-                    Log out
-                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={logout}>Log out</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (

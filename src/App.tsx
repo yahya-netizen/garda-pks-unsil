@@ -20,27 +20,62 @@ import SoalKuis from "./components/modules/Kuis/SoalKuis";
 import ResultKuisModule from "./components/modules/Kuis/ResultKuisModule";
 
 const App = () => (
-    <TooltipProvider>
-      <Toaster />
-      <Sonner position="top-center" richColors={true}/>
-        <Routes>
-          <Route path="/" element={ <Hero  />} />
-          <Route path="/login" element={<LoginModule />} />
-          <Route path="/register" element={<RegisterModule />} />
-          <Route path="/alur" element={<AlurModule />} />
-          <Route path="/informasi" element={<InformasiModule />} />
-          <Route path="/berita" element={<BeritaModule />} />
-          <Route path="/berita/:slug" element={<DetailBeritaModule />} />
-          <Route path="/komunitas" element={<KomunitasModule />} />
-          <Route path="/edukasi" element={<Protected><EdukasiModule /></Protected>} />
-          <Route path="/live-chat" element={<Protected><LivechatModule /></Protected>} />
-          <Route path="/profile" element={<Protected><ProfileModule /></Protected>} />
-          <Route path="/edukasi/kuis/:kuisId" element={<Protected><SoalKuis /></Protected>} />
-          <Route path="/edukasi/kuis-result/:kuisId" element={<Protected><ResultKuisModule /></Protected>} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-    </TooltipProvider>  
+  <TooltipProvider>
+    <Toaster />
+    <Sonner position="top-center" richColors={true} />
+    <Routes>
+      <Route path="/" element={<Hero />} />
+      <Route path="/login" element={<LoginModule />} />
+      <Route path="/register" element={<RegisterModule />} />
+      <Route path="/alur" element={<AlurModule />} />
+      <Route path="/informasi" element={<InformasiModule />} />
+      <Route path="/berita" element={<BeritaModule />} />
+      <Route path="/berita/:slug" element={<DetailBeritaModule />} />
+      <Route path="/komunitas" element={<KomunitasModule />} />
+      <Route
+        path="/edukasi"
+        element={
+          <Protected>
+            <EdukasiModule />
+          </Protected>
+        }
+      />
+      <Route
+        path="/live-chat"
+        element={
+          <Protected>
+            <LivechatModule />
+          </Protected>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <Protected>
+            <ProfileModule />
+          </Protected>
+        }
+      />
+      <Route
+        path="/edukasi/kuis/:kuisId"
+        element={
+          <Protected>
+            <SoalKuis />
+          </Protected>
+        }
+      />
+      <Route
+        path="/edukasi/kuis-result/:kuisId"
+        element={
+          <Protected>
+            <ResultKuisModule />
+          </Protected>
+        }
+      />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </TooltipProvider>
 );
 
 export default App;
