@@ -61,7 +61,7 @@ export default function BeritaModule() {
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Informasi terkini tentang program, kegiatan, dan pencapaian Satgas
-            Pencegahan & Penanganan Kekerasan Seksual Universitas Siliwangi
+            PPKPT (Pencegahan & Penanganan Kekerasan) Universitas Siliwangi
           </p>
         </div>
 

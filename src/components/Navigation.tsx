@@ -62,10 +62,10 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                 <img src={"satgas.ico"} alt="" />
               </div>
               <div className="hidden lg:block">
-                <h1 className="text-lg font-bold text-primary">
-                  Satgas Pencegahan & Penanganan Kekerasan
+                <h1 className="text-lg font-bold text-primary leading-tight">
+                  Satgas PPKPT
                 </h1>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   Universitas Siliwangi
                 </p>
               </div>

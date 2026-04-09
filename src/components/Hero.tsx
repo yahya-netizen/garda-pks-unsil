@@ -18,20 +18,21 @@ const Hero = ({ setActiveSection }: HeroProps) => {
 
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-gradient">Satuan Tugas Pencegahan</span>
+            <span className="text-gradient">Satuan Tugas</span>
             <br />
-            <span className="text-primary">
-              & Penanganan Kekerasan Perguruan Tinggi
+            <span className="text-primary uppercase tracking-wider">
+              PPKPT UNSIL
             </span>
             <br />
-            <span className="text-foreground">Universitas Siliwangi</span>
+            <span className="text-foreground text-2xl md:text-3xl lg:text-4xl">
+              Universitas Siliwangi
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Bersama menciptakan lingkungan kampus yang aman, nyaman, dan bebas
-            dari segala bentuk kekerasan untuk seluruh civitas akademika
-            Universitas Siliwangi.
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            Pencegahan dan Penanganan Kekerasan di Lingkungan Perguruan Tinggi.
+            Bersama menciptakan kampus yang aman, inklusif, dan berkeadilan bagi seluruh civitas akademika.
           </p>
 
           {/* Action Buttons */}

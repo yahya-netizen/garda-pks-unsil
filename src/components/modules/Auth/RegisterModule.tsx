@@ -75,8 +75,8 @@ export default function RegisterModule() {
               <img src="/satgas.ico" alt="Satgas Logo" className="h-8 w-8" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Daftar Akun</h2>
-            <p className="text-gray-600">Satgas Pencegahan & Penanganan Kekerasan</p>
-            <p className="text-sm text-gray-500">Universitas Siliwangi</p>
+            <p className="text-gray-600 font-medium">Satgas PPKPT UNSIL</p>
+            <p className="text-xs text-gray-400 uppercase tracking-tighter">Universitas Siliwangi</p>
           </div>
 
           {/* Form */}

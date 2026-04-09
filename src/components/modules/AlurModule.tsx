@@ -18,87 +18,86 @@ const AlurModule = () => {
   const alurSteps = [
     {
       step: 1,
-      title: "Pelaporan Awal",
-      description: "Korban atau saksi melaporkan kejadian dengan mengisi formulir dan berkas-berkas melalui berbagai saluran yang tersedia",
+      title: "Laporan Masuk",
+      description: "Korban atau saksi melaporkan kejadian melalui kanal yang tersedia (Online/Offline).",
       icon: AlertTriangle,
       details: [
-        "Hotline 24/7: 0823-1020-2930",
+        "Hotline: 0823-1020-2930",
         "Email: satgasppkpt@unsil.ac.id", 
-        "Langsung ke kantor Satgas PPKPT"
+        "Formulir Pelaporan (Lampiran 1)",
+        "Kerahasiaan Identitas Terjamin"
       ],
-      timeframe: "0-24 jam",
+      timeframe: "Segera",
       color: "bg-red-50 border-red-200 text-red-700"
     },
     {
       step: 2,
-      title: "Penerimaan & Dokumentasi",
-      description: "Satgas menerima laporan dan melakukan dokumentasi awal dengan menjaga kerahasiaan",
+      title: "Telaah Awal",
+      description: "Satgas melakukan verifikasi awal dan penentuan kelayakan laporan.",
       icon: FileText,
       details: [
-        "Pencatatan data laporan",
-        "Identifikasi korban, saksi, dan terlapor",
-        "Dokumentasi kronologi kejadian",
-        "Pemberian informasi kepada terlapor",
-        "Sidang telaah awal",
-        "Penentuan langkah selanjutnya"
+        "Verifikasi identitas & bukti awal",
+        "Identifikasi kebutuhan mendesak korban",
+        "Sidang telaah awal oleh Satgas",
+        "Hasil: Lanjut Pemeriksaan / Dihentikan"
       ],
-      timeframe: "3-7 hari kerja",
+      timeframe: "Maks. 3 Hari Kerja",
       color: "bg-orange-50 border-orange-200 text-orange-700"
     },
     {
       step: 3,
-      title: "Perlindungan Korban",
-      description: "Memberikan perlindungan dan dukungan awal kepada korban",
-      icon: Shield,
+      title: "Pemeriksaan",
+      description: "Proses pengumpulan keterangan, bukti, dan pendalaman kasus secara profesional.",
+      icon: Search,
       details: [
-        "Konseling psikologis",
-        "Bantuan medis jika diperlukan",
-        "Perlindungan identitas korban",
-        "Pendampingan hukum"
+        "Permintaan keterangan (Korban, Saksi, Terlapor)",
+        "Pengumpulan & Analisis Barang Bukti",
+        "Pendampingan & Perlindungan Korban",
+        "Dapat diperpanjang jika diperlukan"
       ],
-      timeframe: "Segera setelah laporan",
+      timeframe: "Maks. 30 Hari Kerja",
       color: "bg-blue-50 border-blue-200 text-blue-700"
     },
     {
       step: 4,
-      title: "Investigasi",
-      description: "Melakukan penyelidikan menyeluruh terhadap kasus yang dilaporkan",
-      icon: Search,
+      title: "Kesimpulan & Rekomendasi",
+      description: "Penyusunan hasil pemeriksaan dan rekomendasi sanksi kepada Rektor.",
+      icon: Scale,
       details: [
-        "Wawancara dengan korban dan saksi",
-        "Pengumpulan bukti-bukti",
-        "Klarifikasi dengan pihak terlapor",
-        "Analisis fakta dan temuan"
+        "Penyusunan Berita Acara Kesimpulan",
+        "Rekomendasi Sanksi (Ringan/Sedang/Berat)",
+        "Rekomendasi Pemulihan Korban",
+        "Penyampaian ke Rektor/Kementerian"
       ],
-      timeframe: "7-30 hari kerja",
+      timeframe: "Maks. 7 Hari Kerja",
       color: "bg-purple-50 border-purple-200 text-purple-700"
     },
     {
       step: 5,
-      title: "Putusan & Sanksi",
-      description: "Pengambilan keputusan berdasarkan hasil investigasi dan pemberian sanksi yang sesuai",
-      icon: Scale,
+      title: "Keputusan Rektor",
+      description: "Penerbitan Keputusan Rektor mengenai sanksi dan tindak lanjut.",
+      icon: CheckCircle2,
       details: [
-        "Sidang panel ahli",
-        "Penilaian tingkat pelanggaran",
-        "Penentuan sanksi administratif",
-        "Rujukan ke pihak berwajib jika perlu"
+        "Peninjauan rekomendasi Satgas",
+        "Penerbitan SK Rektor",
+        "Pemberitahuan kepada para pihak",
+        "Pelaksanaan sanksi administratif"
       ],
-      timeframe: "3-7 hari kerja setelah investigasi",
+      timeframe: "Maks. 5 Hari Kerja",
       color: "bg-indigo-50 border-indigo-200 text-indigo-700"
     },
     {
       step: 6,
       title: "Pemulihan & Monitoring",
-      description: "Proses pemulihan korban dan pemantauan pelaksanaan sanksi",
+      description: "Layanan pemulihan berkelanjutan bagi korban dan pemantauan kondisi.",
       icon: HeartHandshake,
       details: [
-        "Program rehabilitasi korban",
-        "Monitoring pelaksanaan sanksi",
-        "Evaluasi dampak penanganan",
-        "Pencegahan berulangnya kejadian"
+        "Dukungan Akademik & Medis",
+        "Rehabilitasi Psikologis & Sosial",
+        "Monitoring Ketidakberulangan",
+        "Evaluasi Dampak Penanganan"
       ],
-      timeframe: "Ongoing (berkelanjutan)",
+      timeframe: "Berkelanjutan",
       color: "bg-green-50 border-green-200 text-green-700"
     }
   ];

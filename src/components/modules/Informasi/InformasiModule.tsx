@@ -13,7 +13,8 @@ import {
   MessageCircle,
   Globe,
   Download,
-  Award
+  Award,
+  AlertTriangle
 } from "lucide-react";
 
 const InformasiModule = () => {
@@ -61,7 +62,7 @@ const InformasiModule = () => {
     },
     {
       channel: "Tatap Muka",
-      description: "Konsultasi langsung di kantor Satgas PPKPT",
+      description: "Konsultasi langsung di Gd. Pengembangan Karakter Kampus 1, Jl. Siliwangi No.24",
       features: ["Personal", "Counseling", "Support"],
       icon: MapPin
     }
@@ -69,74 +70,84 @@ const InformasiModule = () => {
 
   const satgasMembers = [
     {
-      name: "Irani Hoeronis, S.Si., M.T., CRP., CIISA",
+      name: "Irani Hoeronis, S.Si., M.T.",
       position: "Ketua Satgas PPKPT",
-      department: "Fakultas Teknik",
-      expertise: "Psikologi Pendidikan, Konseling"
+      department: "Pendidik",
+      expertise: ""
     },
     {
-      name: "Dr. Ahmad Rahman, S.H., M.H", 
-      position: "Wakil Ketua Bidang Hukum",
-      department: "Fakultas Hukum",
-      expertise: "Hukum Pidana, Perlindungan Korban"
+      name: "Wiwi Widiastuti, S.Pd., M.Pd.",
+      position: "Sekretaris Satgas PPKPT",
+      department: "Pendidik",
+      expertise: ""
     },
     {
-      name: "Dr. Maya Sari, M.Psi., Psikolog",
-      position: "Koordinator Konseling",
-      department: "Pusat Konseling Mahasiswa",
-      expertise: "Psikologi Klinis, Trauma Healing"
+      name: "Elsi, S.H., M.H.",
+      position: "Anggota (Divisi Penanganan)",
+      department: "Pendidik",
+      expertise: "Hukum & Advokasi"
     },
     {
-      name: "Drs. Budi Santoso, M.M",
-      position: "Sekretaris Satgas",
-      department: "Biro Administrasi Akademik",
-      expertise: "Administrasi, Manajemen Krisis"
+      name: "Yadi Mulyadi, S.Ag., M.Pd.",
+      position: "Anggota (Divisi Pencegahan)",
+      department: "Unsur Dosen",
+      expertise: "Edukasi & Sosialisasi"
     },
     {
-      name: "Dr. Rina Wijayanti, S.Sos., M.Si",
-      position: "Koordinator Komunikasi",
-      department: "Fakultas Ilmu Sosial dan Politik", 
-      expertise: "Komunikasi, Public Relations"
+      name: "Abdul Muthalib, S.T., M.T.",
+      position: "Anggota (Divisi Pencegahan)",
+      department: "Unsur Tenaga Kependidikan",
+      expertise: "Sarana & Prasarana"
     },
     {
-      name: "Dra. Lilis Suryani, M.Pd",
-      position: "Koordinator Pencegahan",
-      department: "Lembaga Pengabdian Masyarakat",
-      expertise: "Pendidikan Masyarakat, Sosialisasi"
+      name: "Heni Sukmawati, S.Sos., M.Si.",
+      position: "Anggota (Divisi Penanganan)",
+      department: "Unsur Tenaga Kependidikan",
+      expertise: "Layanan Psikososial"
+    },
+    {
+      name: "[Perwakilan Mahasiswa]",
+      position: "Anggota",
+      department: "Unsur Mahasiswa",
+      expertise: "Pendampingan Sebaya"
     }
   ];
 
   const recentActivities = [
     {
-      date: "20 Sept 2024",
+      date: "1 Okt 2025",
+      title: "Penerbitan Buku Pedoman Satgas PPKPT Terbaru",
+      participants: "Seluruh Sivitas Akademika",
+      status: "Baru"
+    },
+    {
+      date: "20 Sept 2025",
       title: "Workshop 'Mencegah Kekerasan di Lingkungan Kampus'",
       participants: "120 mahasiswa dan staff",
       status: "Selesai"
     },
     {
-      date: "15 Sept 2024", 
+      date: "15 Sept 2025", 
       title: "Sosialisasi PPKPT untuk Mahasiswa Baru",
       participants: "800+ mahasiswa baru",
       status: "Selesai"
     },
     {
-      date: "10 Sept 2024",
+      date: "10 Sept 2025",
       title: "Pelatihan Peer Counselor",
       participants: "25 mahasiswa volunteer",
       status: "Selesai"
-    },
-    {
-      date: "25 Okt 2024",
-      title: "Seminar Nasional: Kampus Aman dan Inklusif",
-      participants: "Target 300 peserta",
-      status: "Akan Datang"
     }
   ];
 
   const continueConsult = (href: string) => {
-    if(confirm("Apakah anda ingin melanjutkan konsultasi  ?")){
+    if(confirm("Apakah anda ingin melanjutkan konsultasi?")){
       window.location.href = href;
     }
+  }
+
+  const downloadGuide = () => {
+    window.open("/Buku-Pedoman-Satgas-PPKPT-Unsil.pdf", "_blank");
   }
 
   return (
@@ -144,11 +155,11 @@ const InformasiModule = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient">Informasi</span> Satgas PPKS
+            <span className="text-gradient">Informasi</span> Satgas PPKPT
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Informasi lengkap mengenai kontak, layanan, struktur organisasi, dan kegiatan 
-            Satuan Tugas Pencegahan dan Penanganan Kekerasan Seksual Universitas Siliwangi.
+            Satuan Tugas Pencegahan dan Penanganan Kekerasan di Lingkungan Perguruan Tinggi (Satgas PPKPT) Universitas Siliwangi.
           </p>
         </div>
 
@@ -223,7 +234,7 @@ const InformasiModule = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Users className="w-6 h-6 text-primary" />
-              Susunan Anggota Satgas PPKS
+              Susunan Anggota Satgas PPKPT
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {satgasMembers.map((member, index) => (
@@ -246,6 +257,32 @@ const InformasiModule = () => {
                     <p className="text-sm font-medium">Keahlian: {member.expertise}</p>
                   </CardContent>
                 </Card>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground mt-4 italic text-center">
+              * Berdasarkan SK Rektor, Satgas PPKPT Universitas Siliwangi periode 2024-2026 beranggotakan 17 orang yang terdiri dari unsur Dosen, Tendik, dan Mahasiswa.
+            </p>
+          </div>
+
+          {/* Bentuk-Bentuk Kekerasan */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <AlertTriangle className="w-6 h-6 text-primary" />
+              Bentuk-Bentuk Kekerasan (Permendikbudristek 55/2024)
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { title: "Kekerasan Fisik", desc: "Tindakan yang menyebabkan luka atau penderitaan fisik (pemukulan, penganiayaan, dll)." },
+                { title: "Kekerasan Psikis", desc: "Tindakan non-fisik yang merendahkan martabat (pengucilan, intimidasi, teror psikologis)." },
+                { title: "Perundungan", desc: "Pola kekerasan berulang dengan adanya ketimpangan kuasa, baik fisik maupun psikis." },
+                { title: "Kekerasan Seksual", desc: "Spektrum luas dari pelecehan verbal hingga pemaksaan tanpa persetujuan sah." },
+                { title: "Diskriminasi & Intoleransi", desc: "Pembedaan perlakuan atau penafikan terhadap keragaman identitas." },
+                { title: "Kebijakan Bermasalah", desc: "Pedoman atau tata kelola yang menimbulkan penderitaan atau ketidakadilan." }
+              ].map((item, index) => (
+                <div key={index} className="p-4 border rounded-lg bg-card shadow-sm">
+                  <h4 className="font-bold text-primary mb-1">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -301,9 +338,9 @@ const InformasiModule = () => {
                 untuk mendukung program pencegahan kekerasan di kampus.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="default" className="transition-smooth">
+                <Button variant="default" className="transition-smooth" onClick={downloadGuide}>
                   <Download className="w-4 h-4 mr-2" />
-                  Panduan PPKPT
+                  Buku Pedoman Satgas
                 </Button>
                 <Button variant="outline" className="transition-smooth">
                   <ExternalLink className="w-4 h-4 mr-2" />
@@ -319,6 +356,7 @@ const InformasiModule = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
