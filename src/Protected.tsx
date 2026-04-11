@@ -10,7 +10,7 @@ export const Protected = ({ children }: { children: React.ReactNode}) => {
         if (!token) {
             navigate('/login');
         }
-    }, [user, token]);
+    }, [user, token, navigate]);
 
     if (!token) {
         return null;

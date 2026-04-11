@@ -82,34 +82,94 @@ const InformasiModule = () => {
       expertise: ""
     },
     {
-      name: "Elsi, S.H., M.H.",
-      position: "Anggota (Divisi Penanganan)",
-      department: "Pendidik",
-      expertise: "Hukum & Advokasi"
-    },
-    {
-      name: "Yadi Mulyadi, S.Ag., M.Pd.",
-      position: "Anggota (Divisi Pencegahan)",
-      department: "Unsur Dosen",
-      expertise: "Edukasi & Sosialisasi"
-    },
-    {
-      name: "Abdul Muthalib, S.T., M.T.",
-      position: "Anggota (Divisi Pencegahan)",
-      department: "Unsur Tenaga Kependidikan",
-      expertise: "Sarana & Prasarana"
-    },
-    {
-      name: "Heni Sukmawati, S.Sos., M.Si.",
-      position: "Anggota (Divisi Penanganan)",
-      department: "Unsur Tenaga Kependidikan",
-      expertise: "Layanan Psikososial"
-    },
-    {
-      name: "[Perwakilan Mahasiswa]",
+      name: "RINO SUNDAWA PUTRA, S.IP., M.Si.",
       position: "Anggota",
-      department: "Unsur Mahasiswa",
-      expertise: "Pendampingan Sebaya"
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Santi Suryani, S.H., M.H.",
+      position: "Anggota",
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Sandra Leoni Prakasa Yaqub, S.H., M.H.",
+      position: "Anggota",
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Dadan Ramdani. S.H., M.H.",
+      position: "Anggota",
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Ir. Heni Sulastri, M.T.",
+      position: "Anggota",
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Dedi Hartadi, S.Kom.",
+      position: "Anggota",
+      department: "Pendidik",
+      expertise: ""
+    },
+    {
+      name: "Sasy Tasya Kierana",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Eliza Rahmawati",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Dahlia",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Silvia Meilani",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Sipa Nurul Azizah",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Rina Natalia",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Fadhila Hendani",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Mohamad Yahya Al-Fadil",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
+    },
+    {
+      name: "Adam Malik Rizkiansyah",
+      position: "Anggota",
+      department: "Mahasiswa",
+      expertise: ""
     }
   ];
 

@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   AlertTriangle,
   FileText,
-  Shield,
   Search,
   Scale,
   HeartHandshake,
@@ -24,14 +23,14 @@ const AlurModule = () => {
   const alurSteps = [
     {
       step: 1,
-<<<<<<< HEAD
       title: "Laporan Masuk",
       description: "Korban atau saksi melaporkan kejadian melalui kanal yang tersedia (Online/Offline).",
       icon: AlertTriangle,
       details: [
-        "Hotline: 0823-1020-2930",
+        "Hotline 24/7: 0823-1020-2930",
         "Email: satgasppkpt@unsil.ac.id", 
         "Formulir Pelaporan (Lampiran 1)",
+        "Langsung ke kantor Satgas PPKPT",
         "Kerahasiaan Identitas Terjamin"
       ],
       timeframe: "Segera",
@@ -50,36 +49,6 @@ const AlurModule = () => {
       ],
       timeframe: "Maks. 3 Hari Kerja",
       color: "bg-orange-50 border-orange-200 text-orange-700"
-=======
-      title: "Pelaporan Awal",
-      description:
-        "Korban atau saksi melaporkan kejadian dengan mengisi formulir dan berkas-berkas melalui berbagai saluran yang tersedia",
-      icon: AlertTriangle,
-      details: [
-        "Hotline 24/7: 0823-1020-2930",
-        "Email: satgasppkpt@unsil.ac.id",
-        "Langsung ke kantor Satgas PPKPT",
-      ],
-      timeframe: "0-24 jam",
-      color: "bg-red-50 border-red-200 text-red-700",
-    },
-    {
-      step: 2,
-      title: "Penerimaan & Dokumentasi",
-      description:
-        "Satgas menerima laporan dan melakukan dokumentasi awal dengan menjaga kerahasiaan",
-      icon: FileText,
-      details: [
-        "Pencatatan data laporan",
-        "Identifikasi korban, saksi, dan terlapor",
-        "Dokumentasi kronologi kejadian",
-        "Pemberian informasi kepada terlapor",
-        "Sidang telaah awal",
-        "Penentuan langkah selanjutnya",
-      ],
-      timeframe: "3-7 hari kerja",
-      color: "bg-orange-50 border-orange-200 text-orange-700",
->>>>>>> 6666a08d60574abf0bd7fcc66a7270f97c6ba19b
     },
     {
       step: 3,
@@ -87,7 +56,6 @@ const AlurModule = () => {
       description: "Proses pengumpulan keterangan, bukti, dan pendalaman kasus secara profesional.",
       icon: Search,
       details: [
-<<<<<<< HEAD
         "Permintaan keterangan (Korban, Saksi, Terlapor)",
         "Pengumpulan & Analisis Barang Bukti",
         "Pendampingan & Perlindungan Korban",
@@ -123,45 +91,6 @@ const AlurModule = () => {
       ],
       timeframe: "Maks. 5 Hari Kerja",
       color: "bg-indigo-50 border-indigo-200 text-indigo-700"
-=======
-        "Konseling psikologis",
-        "Bantuan medis jika diperlukan",
-        "Perlindungan identitas korban",
-        "Pendampingan hukum",
-      ],
-      timeframe: "Segera setelah laporan",
-      color: "bg-blue-50 border-blue-200 text-blue-700",
-    },
-    {
-      step: 4,
-      title: "Investigasi",
-      description:
-        "Melakukan penyelidikan menyeluruh terhadap kasus yang dilaporkan",
-      icon: Search,
-      details: [
-        "Wawancara dengan korban dan saksi",
-        "Pengumpulan bukti-bukti",
-        "Klarifikasi dengan pihak terlapor",
-        "Analisis fakta dan temuan",
-      ],
-      timeframe: "7-30 hari kerja",
-      color: "bg-purple-50 border-purple-200 text-purple-700",
-    },
-    {
-      step: 5,
-      title: "Putusan & Sanksi",
-      description:
-        "Pengambilan keputusan berdasarkan hasil investigasi dan pemberian sanksi yang sesuai",
-      icon: Scale,
-      details: [
-        "Sidang panel ahli",
-        "Penilaian tingkat pelanggaran",
-        "Penentuan sanksi administratif",
-        "Rujukan ke pihak berwajib jika perlu",
-      ],
-      timeframe: "3-7 hari kerja setelah investigasi",
-      color: "bg-indigo-50 border-indigo-200 text-indigo-700",
->>>>>>> 6666a08d60574abf0bd7fcc66a7270f97c6ba19b
     },
     {
       step: 6,
@@ -169,7 +98,6 @@ const AlurModule = () => {
       description: "Layanan pemulihan berkelanjutan bagi korban dan pemantauan kondisi.",
       icon: HeartHandshake,
       details: [
-<<<<<<< HEAD
         "Dukungan Akademik & Medis",
         "Rehabilitasi Psikologis & Sosial",
         "Monitoring Ketidakberulangan",
@@ -178,16 +106,6 @@ const AlurModule = () => {
       timeframe: "Berkelanjutan",
       color: "bg-green-50 border-green-200 text-green-700"
     }
-=======
-        "Program rehabilitasi korban",
-        "Monitoring pelaksanaan sanksi",
-        "Evaluasi dampak penanganan",
-        "Pencegahan berulangnya kejadian",
-      ],
-      timeframe: "Ongoing (berkelanjutan)",
-      color: "bg-green-50 border-green-200 text-green-700",
-    },
->>>>>>> 6666a08d60574abf0bd7fcc66a7270f97c6ba19b
   ];
 
   const emergencyContacts = [
